@@ -27,6 +27,10 @@ class CastleDrawer {
     }
 
     public function draw(): void {
+        //TODO: Anxaineta?
+        for($i = 0; $i < $this->floorsNumber; ++$i) {
+            $this->drawFloor();
+        }
         $this->drawPinya();
     }
 
@@ -35,6 +39,13 @@ class CastleDrawer {
         return intval($number);
     }
 
+    private function drawFloor(): void {
+        for($i = 0; $i < $this->peoplePerFloor;++$i) {
+            echo self::PERSON;
+        }
+        echo PHP_EOL; 
+    }
+    //todo: REPEATED LOGIC!!
     private function drawPinya(): void {
         for($i = 0; $i < self::PINYA_LENGTH; ++$i) {
             echo self::PERSON;
