@@ -3,6 +3,8 @@
 class CastleDrawer {
 
     const PERSON = "|";
+    const PINYA_LENGTH = 20;
+
     private int $floorsNumber;
     private int $peoplePerFloor;
 
@@ -24,8 +26,19 @@ class CastleDrawer {
         $this->peoplePerFloor = $number;
     }
 
+    public function draw(): void {
+        $this->drawPinya();
+    }
+
     private function validateInput(string $number): bool | int {
         if((!is_numeric($number) || !is_int($number)) && $number <= 0) return false;
         return intval($number);
+    }
+
+    private function drawPinya(): void {
+        for($i = 0; $i < self::PINYA_LENGTH; ++$i) {
+            echo self::PERSON;
+        }
+        echo PHP_EOL;
     }
 }

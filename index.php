@@ -5,4 +5,5 @@ $castleDrawer = new CastleDrawer();
 $castleDrawer->inputFloor();
 $castleDrawer->inputPeoplePerFloor();
 
-var_dump($castleDrawer);
+//var_dump($castleDrawer);
+$castleDrawer->draw();
