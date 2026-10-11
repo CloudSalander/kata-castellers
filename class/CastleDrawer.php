@@ -28,7 +28,7 @@ class CastleDrawer {
 
     public function draw(): void {
         //TODO: Anxaineta?
-        for($i = 0; $i < $this->floorsNumber; ++$i) {
+        for($i = 0; $i < $this->floorsNumber-1; ++$i) {
             $this->drawFloor();
         }
         $this->drawPinya();
