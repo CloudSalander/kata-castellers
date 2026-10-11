@@ -4,12 +4,14 @@ class CastleDrawer {
 
     const PERSON = "|";
     const PINYA_LENGTH = 20;
-    const FOLRE_LENGTH = 15;
+    const FOLRE_LENGTH = 16;
+    const MANILLES_LENGTH = 12;
     const VALID_INPUT_FOLREMANILLES = ["y","n"];
 
     private int $floorsNumber;
     private int $peoplePerFloor;
     private bool $hasFolre;
+    private bool $hasManilles;
 
     public function inputFloor(): void {
         $number = false;
@@ -37,11 +39,20 @@ class CastleDrawer {
         $this->hasFolre = $hasFolre=="y"?true:false;
     }
 
+    public function inputHasManilles(): void {
+        $hasManilles = false;
+        do {
+            $hasManilles = readline("Has manilles?(y/n)");
+        }while(!in_array(strtolower($hasManilles), self::VALID_INPUT_FOLREMANILLES)); 
+        $this->hasManilles = $hasManilles=="y"?true:false;
+    }
+
     public function draw(): void {
         $baseFloorsToDraw = $this->getNumberBaseFloorsToDraw();
         for($i = 0; $i < $this->floorsNumber-$baseFloorsToDraw; ++$i) {
             $this->drawFloor();
         }
+        if($this->hasManilles) $this->drawManilles();
         if($this->hasFolre) $this->drawFolre();
         $this->drawPinya();
     }
@@ -69,6 +80,7 @@ class CastleDrawer {
     private function getNumberBaseFloorsToDraw(): int {
         $con = 1;
         if($this->hasFolre) ++$con;
+        if($this->hasManilles) ++$con;
         return $con;
     }
     private function drawFolre(): void {
@@ -78,5 +90,15 @@ class CastleDrawer {
         }
         echo PHP_EOL;
     }
+
+    private function drawManilles(): void {
+        echo str_repeat(" ",4);
+        for($i = 0; $i < self::MANILLES_LENGTH; ++$i) {
+            echo self::PERSON;
+        }
+        echo PHP_EOL;
+    }
+
+    
 
 }
