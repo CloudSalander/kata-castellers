@@ -58,8 +58,8 @@ class CastleDrawer {
     }
 
     private function validateInput(string $number): bool | int {
-        if((!is_numeric($number) || !is_int($number)) && $number <= 0) return false;
-        return intval($number);
+        if(!is_numeric($number) && $number <= 0) return false;
+        return intval($number);  //intval prevents decimal wrong input values
     }
 
     private function drawFloor(): void {
