@@ -27,7 +27,6 @@ class CastleDrawer {
     }
 
     public function draw(): void {
-        //TODO: Anxaineta?
         for($i = 0; $i < $this->floorsNumber-1; ++$i) {
             $this->drawFloor();
         }
@@ -40,6 +39,7 @@ class CastleDrawer {
     }
 
     private function drawFloor(): void {
+        echo str_repeat(" ",9);  //Floor draw offset
         for($i = 0; $i < $this->peoplePerFloor;++$i) {
             echo self::PERSON;
         }
