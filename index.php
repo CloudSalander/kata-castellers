@@ -4,6 +4,6 @@ include('class/CastleDrawer.php');
 $castleDrawer = new CastleDrawer();
 $castleDrawer->inputFloor();
 $castleDrawer->inputPeoplePerFloor();
+$castleDrawer->inputHasFolre();
 
-//var_dump($castleDrawer);
 $castleDrawer->draw();
